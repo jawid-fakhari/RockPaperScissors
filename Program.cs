@@ -3,12 +3,9 @@
 string inputRobot;
 int randNumber;
 
+
 int playerScore = 0;
 int robotScore = 0;
-
-
-
-bool playAgain = true;
 
 while (true)
 {
@@ -20,7 +17,6 @@ while (true)
     string playerSelection = AnsiConsole.Prompt(selectionPrompts);
     AnsiConsole.Write($"You choose: {playerSelection} - ");
 
-    Console.Clear();
 
     Random rand = new Random();
     randNumber = rand.Next(1, 4);
@@ -85,6 +81,17 @@ while (true)
         default:
             Console.WriteLine("Invalid entry! \n\n");
             break;
+
+    }
+    if (playerScore == 3)
+    {
+        Console.WriteLine("Game Over! You win!");
+        break;
+    }
+    else if (robotScore == 3)
+    {
+        Console.WriteLine("Game Over! Robot win!");
+        break;
     }
 }
 //while (playAgain)
